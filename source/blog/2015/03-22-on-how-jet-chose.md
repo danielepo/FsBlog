@@ -33,6 +33,7 @@ Like many large-scale projects, we needed a way to handle validation, logging, a
 
 For example, to ensure authorization for an entire controller named MyController, you could use the following code:
 
+	[lang=csharp]
 	[Authorize]
 	public class MyController
 	{
