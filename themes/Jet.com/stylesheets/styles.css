@@ -71,6 +71,12 @@ blockquote {
   font-style:italic;
 }
 
+table.pre pre {
+    background:inherit;
+    font:inherit;
+    color:inherit;
+}
+
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;  
   font-size:12px;
