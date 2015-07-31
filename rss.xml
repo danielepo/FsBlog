@@ -4,6 +4,18 @@
     <link>http://techgroup.jet.com/</link>
     <description>This is the Jet Technology blog</description>
     <item>
+      <title>Training</title>
+      <guid>http://techgroup.jet.com//blog/2015/07-20-training</guid>
+      <link>http://techgroup.jet.com//blog/2015/07-20-training/index.html</link>
+      <pubDate>Mon, 20 Jul 2015 12:30:11 GMT</pubDate>
+      <description>&lt;p&gt;Part of the Jet promise is training. We have a couple internal F# workshops that get regular rotation, as well as a few in the works to help our new engineers quickly get up to speed on our stack. We also will be offering free community classes for anyone who wants to learn F#. More on that in the future, I promise!&lt;/p&gt;
+
+
+</description>
+      <image></image>
+      <author>Rachel Reese</author>
+    </item>
+    <item>
       <title>Jet's Tech Talk Weekly Series</title>
       <guid>http://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly</guid>
       <link>http://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly/index.html</link>
