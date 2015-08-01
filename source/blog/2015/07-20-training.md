@@ -4,7 +4,7 @@
     Date = "2015-07-20T08:30:11";
     Tags = "";
     Description = "";
-    Image = "";
+    Image = "JetLovesFSharp.png";
     Author = "Rachel Reese";
 }
 
