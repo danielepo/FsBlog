@@ -10,7 +10,7 @@
         @:<img src="@Model.Root/images/@post.Image" style="float:right;max-width:300px;max-height:300px;margin:20px;" />
     }
     <p class="view">
-        <small>@post.Author &nbsp;&nbsp;| &nbsp;&nbsp;@PostDate(post.Date) &nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", post.Tags)</small><br />
+        <small>@post.PostAuthor &nbsp;&nbsp;| &nbsp;&nbsp;@PostDate(post.AddedDate) &nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", post.Tags)</small><br />
     @post.Abstract</p>
 
     <p><a href="@Model.Root/blog/@post.Url/index.html">Continue reading...</a></p>

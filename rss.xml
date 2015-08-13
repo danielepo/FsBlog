@@ -1,24 +1,24 @@
 <rss version="2.0">
   <channel>
     <title>Welcome to Jet Tech blog.</title>
-    <link>http://techgroup.jet.com/</link>
+    <link>https://techgroup.jet.com/</link>
     <description>This is the Jet Technology blog</description>
     <item>
       <title>Training</title>
-      <guid>http://techgroup.jet.com//blog/2015/07-20-training</guid>
-      <link>http://techgroup.jet.com//blog/2015/07-20-training/index.html</link>
+      <guid>https://techgroup.jet.com//blog/2015/07-20-training</guid>
+      <link>https://techgroup.jet.com//blog/2015/07-20-training/index.html</link>
       <pubDate>Mon, 20 Jul 2015 12:30:11 GMT</pubDate>
       <description>&lt;p&gt;Part of the Jet promise is training. We have a couple internal F# workshops that get regular rotation, as well as a few in the works to help our new engineers quickly get up to speed on our stack. We also will be offering free community classes for anyone who wants to learn F#. More on that in the future, I promise!&lt;/p&gt;
 
 
 </description>
       <image>JetLovesFSharp.png</image>
-      <author>Rachel Reese</author>
+      <postAuthor>Rachel Reese</postAuthor>
     </item>
     <item>
       <title>Jet's Tech Talk Weekly Series</title>
-      <guid>http://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly</guid>
-      <link>http://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly/index.html</link>
+      <guid>https://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly</guid>
+      <link>https://techgroup.jet.com//blog/2015/07-14-tech-talk-weekly/index.html</link>
       <pubDate>Tue, 14 Jul 2015 08:55:50 GMT</pubDate>
       <description>&lt;p&gt;One lovely afternoon in mid-March, back in the old days of Jet (i.e., when we were still located in our Montclair, NJ offices) our awesome &lt;a href="http://extroverteddeveloper.com/"&gt;Jim Wallace&lt;/a&gt; took the initiative to start organizing weekly tech talks. Originally, we had envisioned gathering to simply watch a conference video that we all wish we'd seen live. We took a quick vote on Slack, and it was decided that our inaugural video would be Bart de Smet's &lt;a href="http://www.infoq.com/presentations/cloud-rx"&gt;Cloud-scale Event Processing using Rx.&lt;/a&gt;. We even threw in some company-sponsored pizza to make it more fun! ;-)&lt;/p&gt;
 
@@ -27,12 +27,12 @@
 
 </description>
       <image>ttw/tomas3.JPG</image>
-      <author>Rachel Reese</author>
+      <postAuthor>Rachel Reese</postAuthor>
     </item>
     <item>
       <title>On how Jet chose F#</title>
-      <guid>http://techgroup.jet.com//blog/2015/03-22-on-how-jet-chose</guid>
-      <link>http://techgroup.jet.com//blog/2015/03-22-on-how-jet-chose/index.html</link>
+      <guid>https://techgroup.jet.com//blog/2015/03-22-on-how-jet-chose</guid>
+      <link>https://techgroup.jet.com//blog/2015/03-22-on-how-jet-chose/index.html</link>
       <pubDate>Sun, 22 Mar 2015 16:38:14 GMT</pubDate>
       <description>&lt;h2&gt;In the beginning&lt;/h2&gt;
 
@@ -43,12 +43,12 @@
 
 </description>
       <image></image>
-      <author>Rachel Reese</author>
+      <postAuthor>Rachel Reese</postAuthor>
     </item>
     <item>
       <title>Jet sponsors the F# Software Foundation!</title>
-      <guid>http://techgroup.jet.com//blog/2015/01-12-jet-sponsors-FSSF</guid>
-      <link>http://techgroup.jet.com//blog/2015/01-12-jet-sponsors-FSSF/index.html</link>
+      <guid>https://techgroup.jet.com//blog/2015/01-12-jet-sponsors-FSSF</guid>
+      <link>https://techgroup.jet.com//blog/2015/01-12-jet-sponsors-FSSF/index.html</link>
       <pubDate>Mon, 12 Jan 2015 16:27:31 GMT</pubDate>
       <description>&lt;h2&gt;What is the F# Software Foundation?&lt;/h2&gt;
 
@@ -59,7 +59,7 @@
 
 </description>
       <image>balloons.jpg</image>
-      <author>Rachel Reese</author>
+      <postAuthor>Rachel Reese</postAuthor>
     </item>
   </channel>
 </rss>
