@@ -52,7 +52,7 @@ module Blog =
                 sortByDescending (year, month)
                 select (year, uk.DateTimeFormat.GetMonthName(month), g :> seq<_>) }
         |> Array.ofSeq
-      Root = root.Replace('\\', '/') 
+      Root = root.Replace('\\', '/').Remove(root.Length-1)
       Title = "Technology"
       Videos = videos
       }
