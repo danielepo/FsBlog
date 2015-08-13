@@ -16,9 +16,10 @@ module VideoPosts =
       Description : string
       AddedDate : System.DateTime
       Url : string
+      ContentUrl : string
       Tags : seq<string> 
-      PostAuthor : string
-      ContentAuthor : string }
+      PostAuthor : string 
+    }
 
   /// Simple function that parses the header of the blog post. Everybody knows
   /// that doing this with regexes is silly, but the blog post headers are simple enough.
@@ -36,12 +37,17 @@ module VideoPosts =
             | _ -> failwithf "Invalid header in the following blog file: %s" file ) |> dict
       let relativeFile = file.Substring(blog.Length)
       let relativeFile = let idx = relativeFile.LastIndexOf('.') in relativeFile.Substring(0, idx)
+      let url = lookup.["ContentUrl"]
+      if url.Contains("youtube") && not <| url.Contains("embed") then
+        failwithf "Invalid youtube url. Must use embed link!"
+
       try
-        { Title = lookup.["Title"]
+        { Title = "Title" 
           Url = relativeFile.Replace("\\", "/")
-          Description = lookup.["Description"]
+          ContentUrl =  lookup.["ContentUrl"]
+          Description = "Description"
           Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
           AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
           PostAuthor = lookup.["PostAuthor"]
-          ContentAuthor = lookup.["ContentAuthor"]}
+        }
       with _ -> failwithf "Invalid header in the following blog file: %s" file

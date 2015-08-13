@@ -91,9 +91,9 @@ type TemplateBaseExtensions<'T>() =
     member x.PostAuthor
         with get() = defaultArg (x.tryGetViewBagValue<string> "PostAuthor") ""
         and set value = x.trySetViewBagValue<string> "PostAuthor" value
-    member x.ContentAuthor
-        with get() = defaultArg (x.tryGetViewBagValue<string> "ContentAuthor") ""
-        and set value = x.trySetViewBagValue<string> "ContentAuthor" value
+    member x.ContentUrl
+        with get() = defaultArg (x.tryGetViewBagValue<string> "ContentUrl") ""
+        and set value = x.trySetViewBagValue<string> "ContentUrl" value
     member x.Description
         with get() = defaultArg (x.tryGetViewBagValue<string> "Description") ""
         and set value = x.trySetViewBagValue<string> "Description" value

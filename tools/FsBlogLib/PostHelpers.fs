@@ -108,17 +108,14 @@ module PostHelpers =
     PostAuthor = "";
 *)"""   title (date.ToString("yyyy-MM-ddThh:mm:ss"))
 
-  let videoHeader (date:System.DateTime) title = 
+  let videoHeader author tags (date:System.DateTime) url = 
      sprintf """@{
     Layout = "video";
-    Title = "%s";
+    Tags = "%s";
+    ContentUrl = "%s";
+    PostAuthor = "%s";
     AddedDate = "%s";
-    Tags = "";
-    Description = "";
-    Url = "";
-    PostAuthor = "";
-    ContentAuthor = "";
-}"""   title (date.ToString("yyyy-MM-ddThh:mm:ss"))
+}"""  tags url author (date.ToString("yyyy-MM-ddThh:mm:ss")) 
 
   // Creates a new markdown page.
   let CreateMarkdownPage path title = 
@@ -171,5 +168,5 @@ module PostHelpers =
   let CreateFsxPost path title = 
     CreateFile path fsxHeader "fsx" title
 
-  let CreateVideoPost path title = 
-    CreateFile path videoHeader "md" title
+  let CreateVideoPost path url author tags = 
+    CreateFile path (videoHeader author tags) "md" url

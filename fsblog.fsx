@@ -132,14 +132,16 @@ Target "New" (fun _ ->
         getBuildParam "post", 
         getBuildParam "fsx",
         getBuildParam "page",
-        getBuildParam "video"    
+        getBuildParam "video"   
     
     match page, post, fsx, video with
     | "", "", "", "" -> traceError "Please specify either a new 'page', 'post', video, or 'fsx'."
     | _, "", "", ""  -> CreateMarkdownPage source page
     | "", _, "", ""  -> CreateMarkdownPost blog post
     | "", "", _, ""  -> CreateFsxPost blog fsx
-    | "", "", "", _  -> CreateVideoPost videos video
+    | "", "", "", _  -> 
+        let name, tags = getBuildParam "name", getBuildParam "tags"
+        CreateVideoPost videos video name tags
     | _, _, _, _     -> traceError "Please specify only one argument, 'post', 'page', 'video', or 'fsx'."
 )
 

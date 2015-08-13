@@ -64,6 +64,10 @@ a small {
   display:block;
 }
 
+.smaller {
+  font-size:0.8em;
+}
+
 blockquote {
   border-left:1px solid #e5e5e5;
   margin:0;
@@ -147,12 +151,13 @@ leftpanel {
     float: left;
     clear:both;
     position:relative;
-    width: 10%;
+    width: 13%;
     height: 600px;
-    margin:1% 0 5% 5%;
+    margin:1% 0 5% 2%;
     padding:20px;
     background-color:white;
     color:white;
+    font-size: smaller;
 }
 
 leftpanel ul {
@@ -193,6 +198,16 @@ footer {
   clear:both;
   display:inline-table;
   padding-bottom:0;
+}
+
+.columns {
+    -webkit-columns: 4 200px; /* Chrome, Safari, Opera */
+    -moz-columns: 4 200px; /* Firefox */
+    columns: 4 200px;
+}
+
+.video {
+    break-inside:avoid;
 }
 
 @media screen {
@@ -355,6 +370,7 @@ footer {
     float: left;
 	-webkit-font-smoothing: antialiased;
 	vertical-align: top;
+    list-style:none;
 }
 
 .social ul li a[href*="twitter.com"]::before {

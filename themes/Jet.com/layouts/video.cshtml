@@ -1,13 +1,21 @@
-@helper PostDate(DateTime rawDate)
-{
-    <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time> }
 @{
     Layout = "default";
 }
-<h1>@Title - @ContentAuthor</h1>
-<p>@Description</p>
+<h2>@Title</h2>
 <p class="view">
-    <small>@PostAuthor &nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", Tags)</small><br />
+    <small>
+        @if (PostAuthor != "")
+        {
+            @:Posted by 
+            @PostAuthor 
+            @:&nbsp; &nbsp;| &nbsp;&nbsp;
+        }
+        @if (Tags.Any())
+        {
+            @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", Tags)
+        }
 
-    <iframe width="560" height="315" src="@Url" frameborder="0" allowfullscreen></iframe>
+    </small><br />
+    <iframe width="640" height="360" src="@ContentUrl" frameborder="0" allowfullscreen></iframe>
 </p>
+<p>@Description</p>
