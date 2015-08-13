@@ -1,0 +1,13 @@
+@helper PostDate(DateTime rawDate)
+{
+    <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time> }
+@{
+    Layout = "default";
+}
+<h1>@Title - @ContentAuthor</h1>
+<p>@Description</p>
+<p class="view">
+    <small>@PostAuthor &nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", Tags)</small><br />
+
+    <iframe width="560" height="315" src="@Url" frameborder="0" allowfullscreen></iframe>
+</p>

@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://techgroup.jet.com
+url: https://techgroup.jet.com
 gitlocation: https://github.com/jet/FsBlog.git
 gitbranch: gh-pages
 title: Welcome to Jet Tech blog.
@@ -10,6 +10,7 @@ description: This is the Jet Technology blog
 
 source: source/
 blog: source/blog/
+videos: source/videos/
 blogIndex: source/blog/index.cshtml
 layouts: layouts
 content: content

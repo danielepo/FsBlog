@@ -1,11 +1,11 @@
 @{
     Layout = "post";
     Title = "Jet sponsors the F# Software Foundation!";
-    Date = "2015-01-12T11:27:31";
+    AddedDate = "2015-01-12T11:27:31";
     Tags = "F#, Community";
     Description = "Jet sponsors the F# Software Foundation.";
     Image = "balloons.jpg";
-	Author="Rachel Reese";
+    PostAuthor="Rachel Reese";
 }
 
 ## What is the F# Software Foundation?

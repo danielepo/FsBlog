@@ -1,11 +1,11 @@
 @{
     Layout = "post";
     Title = "Jet's Tech Talk Weekly Series";
-    Date = "2015-07-14T04:55:50";
+    AddedDate = "2015-07-14T04:55:50";
     Tags = "Learning";
     Description = "Jet's Tech Talk Weekly Series";
     Image = "ttw/tomas3.JPG";
-    Author = "Rachel Reese";
+    PostAuthor = "Rachel Reese";
 }
 
 One lovely afternoon in mid-March, back in the old days of Jet (i.e., when we were still located in our Montclair, NJ offices) our awesome [Jim Wallace](http://extroverteddeveloper.com/) took the initiative to start organizing weekly tech talks. Originally, we had envisioned gathering to simply watch a conference video that we all wish we'd seen live. We took a quick vote on Slack, and it was decided that our inaugural video would be Bart de Smet's [Cloud-scale Event Processing using Rx.](http://www.infoq.com/presentations/cloud-rx). We even threw in some company-sponsored pizza to make it more fun! ;-) 

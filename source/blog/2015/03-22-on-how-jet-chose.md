@@ -1,11 +1,11 @@
 @{
     Layout = "post";
     Title = "On how Jet chose F#";
-    Date = "2015-03-22T12:38:14";
+    AddedDate = "2015-03-22T12:38:14";
     Tags = "F#";
     Description = "";
     Image="";
-    Author="Rachel Reese";
+    PostAuthor="Rachel Reese";
 }
 
 ## In the beginning

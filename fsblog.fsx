@@ -20,6 +20,8 @@ open RazorEngine
 open FsBlogLib.FileHelpers
 open FsBlogLib.BlogPosts
 open FsBlogLib.Blog
+open FsBlogLib.VideoPosts
+open FsBlogLib.PostHelpers
 open FSharp.Http
 open FSharp.Configuration
 
@@ -38,6 +40,7 @@ let gitbranch = config.gitbranch
 
 let source = __SOURCE_DIRECTORY__ ++ config.source
 let blog = __SOURCE_DIRECTORY__ ++ config.blog
+let videos = __SOURCE_DIRECTORY__ ++ config.videos
 let blogIndex = __SOURCE_DIRECTORY__ ++ config.blogIndex
 let themes = __SOURCE_DIRECTORY__ ++ config.themes
 let content = __SOURCE_DIRECTORY__ ++ config.content
@@ -65,9 +68,9 @@ Target "Generate" (fun _ ->
 
     let buildSite (updateTagArchive) =
         let dependencies = [ yield! Directory.GetFiles(layouts) ] 
-        let noModel = { Model.Root = root; MonthlyPosts = [||]; Posts = [||]; TaglyPosts = [||]; GenerateAll = true ; Title="Jet Technology"}
+        let noModel = { Model.Root = root; MonthlyPosts = [||]; Posts = [||]; TaglyPosts = [||]; GenerateAll = true ; Title="Jet Technology"; Videos=[||]}
         let razor = FsBlogLib.Razor(layouts, Model = noModel)
-        let model = LoadModel(tagRenames, TransformAsTemp (template, source) razor, root, blog)
+        let model = LoadModel(tagRenames, TransformAsTemp (template, source) razor, root, blog, videos)
 
         // Generate RSS feed
         GenerateRss root title description model rsscount (output ++ "rss.xml")
@@ -125,17 +128,19 @@ Target "Preview" (fun _ ->
 )
 
 Target "New" (fun _ ->       
-    let post, fsx, page = 
+    let post, fsx, page, video = 
         getBuildParam "post", 
         getBuildParam "fsx",
-        getBuildParam "page"    
+        getBuildParam "page",
+        getBuildParam "video"    
     
-    match page, post, fsx with
-    | "", "", "" -> traceError "Please specify either a new 'page', 'post' or 'fsx'."
-    | _, "", ""  -> CreateMarkdownPage source page
-    | "", _, ""  -> CreateMarkdownPost blog post
-    | "", "", _  -> CreateFsxPost blog fsx
-    | _, _, _    -> traceError "Please specify only one argument, 'post' or 'fsx'."
+    match page, post, fsx, video with
+    | "", "", "", "" -> traceError "Please specify either a new 'page', 'post', video, or 'fsx'."
+    | _, "", "", ""  -> CreateMarkdownPage source page
+    | "", _, "", ""  -> CreateMarkdownPost blog post
+    | "", "", _, ""  -> CreateFsxPost blog fsx
+    | "", "", "", _  -> CreateVideoPost videos video
+    | _, _, _, _     -> traceError "Please specify only one argument, 'post', 'page', 'video', or 'fsx'."
 )
 
 Target "Clean" (fun _ ->

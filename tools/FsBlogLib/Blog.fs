@@ -3,7 +3,9 @@
 open System
 open System.IO
 open BlogPosts
+open VideoPosts
 open FileHelpers
+open PostHelpers
 open System.Xml.Linq
 open FSharp.Literate
 
@@ -18,14 +20,16 @@ module Blog =
     { Posts : BlogHeader[] 
       MonthlyPosts : (int * string * seq<BlogHeader>)[]
       TaglyPosts : (string * string * seq<BlogHeader>)[]
+      Videos : seq<VideoHeader>
       GenerateAll : bool
       Root : string 
       Title : string }
 
   /// Walks over all blog post files and loads model (caches abstracts along the way)
-  let LoadModel(tagRenames, transformer, (root:string), blog) = 
+  let LoadModel(tagRenames, transformer, (root:string), blog, video) = 
     let urlFriendly (s:string) = s.Replace("#", "sharp").Replace(" ", "-").Replace(".", "dot")
-    let posts = LoadBlogPosts tagRenames transformer blog
+    let posts = LoadPosts tagRenames transformer blog ParseBlogHeader
+    let videos = LoadPosts tagRenames transformer video ParseVideoHeader
     let uk = System.Globalization.CultureInfo.GetCultureInfo("en-GB")
 
     { Posts = posts
@@ -36,20 +40,21 @@ module Blog =
                 select t into t
                 distinct
                 let posts = posts |> Seq.filter (fun p -> p.Tags |> Seq.exists ((=) t))
-                let recent = posts |> Seq.filter (fun p -> p.Date > (DateTime.Now.AddYears(-1))) |> Seq.length
+                let recent = posts |> Seq.filter (fun p -> p.AddedDate > (DateTime.Now.AddYears(-1))) |> Seq.length
                 where (recent > 0)
                 sortByDescending (recent * (Seq.length posts))
                 select (t, urlFriendly t, posts) } 
         |> Array.ofSeq
       MonthlyPosts = 
         query { for p in posts do
-                groupBy (p.Date.Year, p.Date.Month) into g
+                groupBy (p.AddedDate.Year, p.AddedDate.Month) into g
                 let year, month = g.Key
                 sortByDescending (year, month)
                 select (year, uk.DateTimeFormat.GetMonthName(month), g :> seq<_>) }
         |> Array.ofSeq
       Root = root.Replace('\\', '/') 
       Title = "Technology"
+      Videos = videos
       }
 
   let TransformFile template hasHeader (razor:FsBlogLib.Razor) prefix current target =     
@@ -96,10 +101,11 @@ module Blog =
               XElement(!"title", item.Title),
               XElement(!"guid", root + "/blog/" + item.Url),
               XElement(!"link", root + "/blog/" + item.Url + "/index.html"),
-              XElement(!"pubDate", item.Date.ToUniversalTime().ToString("r")),
+              XElement(!"pubDate", item.AddedDate.ToUniversalTime().ToString("r")),
               XElement(!"description", item.Abstract),
               XElement(!"image", item.Image ),
-              XElement(!"author", item.Author ) ) |]
+              XElement(!"postAuthor", item.PostAuthor )
+              ) |]
     let channel = 
       XElement
         ( !"channel",

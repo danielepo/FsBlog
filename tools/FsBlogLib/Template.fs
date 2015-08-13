@@ -88,18 +88,21 @@ type TemplateBaseExtensions<'T>() =
     member x.Image
         with get() = defaultArg (x.tryGetViewBagValue<string> "Image") ""
         and set value = x.trySetViewBagValue<string> "Image" value
-    member x.Author
-        with get() = defaultArg (x.tryGetViewBagValue<string> "Author") ""
-        and set value = x.trySetViewBagValue<string> "Author" value
+    member x.PostAuthor
+        with get() = defaultArg (x.tryGetViewBagValue<string> "PostAuthor") ""
+        and set value = x.trySetViewBagValue<string> "PostAuthor" value
+    member x.ContentAuthor
+        with get() = defaultArg (x.tryGetViewBagValue<string> "ContentAuthor") ""
+        and set value = x.trySetViewBagValue<string> "ContentAuthor" value
     member x.Description
         with get() = defaultArg (x.tryGetViewBagValue<string> "Description") ""
         and set value = x.trySetViewBagValue<string> "Description" value
     member x.Tags 
         with get() = defaultArg (x.tryGetViewBagValue<string> "Tags") ""
         and set value = x.trySetViewBagValue<string> "Tags" value
-    member x.Date
-        with get() = defaultArg (x.tryGetViewBagValue<string> "Date") ""
-        and set value = x.trySetViewBagValue<string> "Date" value
+    member x.AddedDate
+        with get() = defaultArg (x.tryGetViewBagValue<string> "AddedDate") ""
+        and set value = x.trySetViewBagValue<string> "AddedDate" value
     member x.Url
         with get() = defaultArg (x.tryGetViewBagValue<string> "Url") ""
         and set value = x.trySetViewBagValue<string> "Url" value

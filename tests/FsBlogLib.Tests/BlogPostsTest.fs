@@ -2,6 +2,7 @@
 
 open Xunit
 open FsBlogLib.FileHelpers
+open FsBlogLib.PostHelpers
 open FsBlogLib.BlogPosts
 open FsUnit.Xunit
 open System

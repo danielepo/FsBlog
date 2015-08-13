@@ -5,25 +5,24 @@ open FSharp.Literate
 // --------------------------------------------------------------------------------------
 // Parsing blog posts etc.
 // --------------------------------------------------------------------------------------
-module BlogPosts = 
+module VideoPosts = 
 
   open FileHelpers
   open System.Text.RegularExpressions
 
   /// Type that stores information about blog posts
-  type BlogHeader = 
+  type VideoHeader = 
     { Title : string
-      Abstract : string
       Description : string
       AddedDate : System.DateTime
       Url : string
       Tags : seq<string> 
-      Image : string
-      PostAuthor : string}
+      PostAuthor : string
+      ContentAuthor : string }
 
   /// Simple function that parses the header of the blog post. Everybody knows
   /// that doing this with regexes is silly, but the blog post headers are simple enough.
-  let ParseBlogHeader renameTag (blog:string) =
+  let ParseVideoHeader renameTag (blog:string) =
     let concatRegex = Regex("\"[\s]*\+[\s]*\"", RegexOptions.Compiled)
     fun (file:string, header:string, abstr) ->
       let lookup =
@@ -40,10 +39,9 @@ module BlogPosts =
       try
         { Title = lookup.["Title"]
           Url = relativeFile.Replace("\\", "/")
-          Abstract = abstr
           Description = lookup.["Description"]
           Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
           AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
-          Image = lookup.["Image"]
-          PostAuthor = lookup.["PostAuthor"]}
+          PostAuthor = lookup.["PostAuthor"]
+          ContentAuthor = lookup.["ContentAuthor"]}
       with _ -> failwithf "Invalid header in the following blog file: %s" file
