@@ -1,14 +1,36 @@
 @helper PostDate(DateTime rawDate)
 {
-    <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time> }
+    <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time>
+}
 @{
     Layout = "default";
 }
-@foreach (var video in Enumerable.Take(Model.Videos, 30))
-{
-    <h1><a href="@Model.Root/videos/@video.Url/index.html">@video.Title - @video.ContentAuthor</a></h1>
-    <p>@video.Description</p>
-    <p class="view">
-        <small>@video.PostAuthor &nbsp;&nbsp;| &nbsp;&nbsp;@PostDate(video.AddedDate) &nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", video.Tags)</small><br />
-    </p>
-}
+
+<h1>Video Library</h1>
+
+<div class="columns">
+    @foreach (var video in Enumerable.Take(Model.Videos, 30))
+    {
+        <div class="video">
+            <h3><a href="@Model.Root/videos/@video.Url/index.html">@video.Title</a></h3>
+            <p class="view">
+                <small>
+                @if (video.PostAuthor != "")
+                {
+                    @:Posted by 
+                    @video.PostAuthor 
+                    @:&nbsp; &nbsp;| &nbsp;&nbsp;
+                }
+                @PostDate(video.AddedDate)
+                @if (Tags.Any())
+                {
+                    @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", Tags)
+                }
+               
+                </small><br />
+            </p>
+            <p>@video.Description</p>
+            <iframe width="200" height="113" src="@video.ContentUrl" frameborder="0" allowfullscreen></iframe>
+        </div>
+    }
+</div>
