@@ -1,5 +1,6 @@
 ﻿namespace FsBlogLib
 open System.IO
+open VideoUtilities
 open FSharp.Literate
 
 // --------------------------------------------------------------------------------------
@@ -108,14 +109,16 @@ module PostHelpers =
     PostAuthor = "";
 *)"""   title (date.ToString("yyyy-MM-ddThh:mm:ss"))
 
-  let videoHeader author tags (date:System.DateTime) url = 
+  let videoHeader author tags title description (date:System.DateTime) url = 
      sprintf """@{
     Layout = "video";
     Tags = "%s";
     ContentUrl = "%s";
+    Title = %s;
+    Description = %s;
     PostAuthor = "%s";
     AddedDate = "%s";
-}"""  tags url author (date.ToString("yyyy-MM-ddThh:mm:ss")) 
+}"""  tags url title description author (date.ToString("yyyy-MM-ddThh:mm:ss")) 
 
   // Creates a new markdown page.
   let CreateMarkdownPage path title = 
@@ -169,4 +172,7 @@ module PostHelpers =
     CreateFile path fsxHeader "fsx" title
 
   let CreateVideoPost path url author tags = 
-    CreateFile path (videoHeader author tags) "md" url
+    let title = Array.get (VideoUtilities.UrlUtilities.get_titles url) 0
+    printf "Found video titled: %s" title
+    let description = Array.get (VideoUtilities.UrlUtilities.get_descriptions url) 0
+    CreateFile path (videoHeader author tags title description) "md" title

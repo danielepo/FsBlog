@@ -42,10 +42,10 @@ module VideoPosts =
         failwithf "Invalid youtube url. Must use embed link!"
 
       try
-        { Title = "Title" 
+        { Title = lookup.["Title"]
           Url = relativeFile.Replace("\\", "/")
           ContentUrl =  lookup.["ContentUrl"]
-          Description = "Description"
+          Description = lookup.["Description"]
           Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
           AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
           PostAuthor = lookup.["PostAuthor"]
