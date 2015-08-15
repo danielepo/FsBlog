@@ -1,7 +1,5 @@
 ﻿namespace FsBlogLib
 open System.IO
-open VideoUtilities
-open FSharp.Literate
 
 // --------------------------------------------------------------------------------------
 // Parsing blog posts etc.
@@ -68,9 +66,9 @@ module PostHelpers =
     use html = DisposableFile.CreateTemp(".html")
     File.WriteAllText(fsx.FileName, rawAbstr)
     if ext = ".fsx" then
-        Literate.ProcessScriptFile(input=fsx.FileName, output=html.FileName)   
+        FSharp.Literate.Literate.ProcessScriptFile(input=fsx.FileName, output=html.FileName)   
     else
-        Literate.ProcessMarkdown(input=fsx.FileName, output=html.FileName)    
+        FSharp.Literate.Literate.ProcessMarkdown(input=fsx.FileName, output=html.FileName)    
     let abstr = File.ReadAllText(html.FileName)
 
     file, header, abstr
@@ -109,7 +107,7 @@ module PostHelpers =
     PostAuthor = "";
 *)"""   title (date.ToString("yyyy-MM-ddThh:mm:ss"))
 
-  let videoHeader author tags title description (date:System.DateTime) url = 
+  let videoHeader author tags url description (date:System.DateTime) title = 
      sprintf """@{
     Layout = "video";
     Tags = "%s";
@@ -171,8 +169,11 @@ module PostHelpers =
   let CreateFsxPost path title = 
     CreateFile path fsxHeader "fsx" title
 
+  let fixformatting (str:string) = 
+    str.Replace("\n", "")
+
   let CreateVideoPost path url author tags = 
-    let title = Array.get (VideoUtilities.UrlUtilities.get_titles url) 0
-    printf "Found video titled: %s" title
-    let description = Array.get (VideoUtilities.UrlUtilities.get_descriptions url) 0
-    CreateFile path (videoHeader author tags title description) "md" title
+    let title = sprintf "\"%s\"" <| fixformatting (Array.get (UrlUtilities.get_titles url) 0)
+    let description = sprintf "\"%s\""<| fixformatting (Array.get (UrlUtilities.get_descriptions url) 0)
+    printf "Found video: %s\n with description:\n %s" title description
+    CreateFile path (videoHeader author tags url description) "md" title

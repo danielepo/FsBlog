@@ -31,8 +31,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{760238
 		config\config.yml = config\config.yml
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "VideoUtilities", "tools\VideoUtilities\VideoUtilities.fsproj", "{0C7B0362-7720-460B-906E-F4876F758444}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,18 +65,6 @@ Global
 		{27E210E1-D9C9-4661-9CF5-4B7EDCB3335F}.Release|x64.Build.0 = Release|x64
 		{27E210E1-D9C9-4661-9CF5-4B7EDCB3335F}.Release|x86.ActiveCfg = Release|x86
 		{27E210E1-D9C9-4661-9CF5-4B7EDCB3335F}.Release|x86.Build.0 = Release|x86
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|x64.Build.0 = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Debug|x86.Build.0 = Debug|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|x64.ActiveCfg = Release|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|x64.Build.0 = Release|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|x86.ActiveCfg = Release|Any CPU
-		{0C7B0362-7720-460B-906E-F4876F758444}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +72,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B83F5E3E-8CEC-4F4E-B251-D2C853816C62} = {8E03BE4F-38F8-4701-AF77-B49950F254F5}
 		{27E210E1-D9C9-4661-9CF5-4B7EDCB3335F} = {22965072-5FEA-4A09-BCF8-975E5EB7942B}
-		{0C7B0362-7720-460B-906E-F4876F758444} = {8E03BE4F-38F8-4701-AF77-B49950F254F5}
 	EndGlobalSection
 EndGlobal
