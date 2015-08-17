@@ -2,7 +2,7 @@
     Layout = "post";
     Title = "Jet's Tech Talk Weekly Series";
     AddedDate = "2015-07-14T04:55:50";
-    Tags = "Learning";
+    Tags = "ContinuousLearning";
     Description = "Jet's Tech Talk Weekly Series";
     Image = "ttw/tomas3.JPG";
     PostAuthor = "Rachel Reese";

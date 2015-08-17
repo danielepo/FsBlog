@@ -9,17 +9,7 @@ module BlogPosts =
 
   open FileHelpers
   open System.Text.RegularExpressions
-
-  /// Type that stores information about blog posts
-  type BlogHeader = 
-    { Title : string
-      Abstract : string
-      Description : string
-      AddedDate : System.DateTime
-      Url : string
-      Tags : seq<string> 
-      Image : string
-      PostAuthor : string}
+  open BlogTypes
 
   /// Simple function that parses the header of the blog post. Everybody knows
   /// that doing this with regexes is silly, but the blog post headers are simple enough.
@@ -38,6 +28,7 @@ module BlogPosts =
       let relativeFile = file.Substring(blog.Length)
       let relativeFile = let idx = relativeFile.LastIndexOf('.') in relativeFile.Substring(0, idx)
       try
+      BlogHeader(
         { Title = lookup.["Title"]
           Url = relativeFile.Replace("\\", "/")
           Abstract = abstr
@@ -45,5 +36,5 @@ module BlogPosts =
           Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
           AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
           Image = lookup.["Image"]
-          PostAuthor = lookup.["PostAuthor"]}
+          PostAuthor = lookup.["PostAuthor"]})
       with _ -> failwithf "Invalid header in the following blog file: %s" file

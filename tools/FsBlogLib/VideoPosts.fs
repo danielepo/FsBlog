@@ -9,17 +9,7 @@ module VideoPosts =
 
   open FileHelpers
   open System.Text.RegularExpressions
-
-  /// Type that stores information about blog posts
-  type VideoHeader = 
-    { Title : string
-      Description : string
-      AddedDate : System.DateTime
-      Url : string
-      ContentUrl : string
-      Tags : seq<string> 
-      PostAuthor : string 
-    }
+  open BlogTypes
 
   /// Simple function that parses the header of the blog post. Everybody knows
   /// that doing this with regexes is silly, but the blog post headers are simple enough.
@@ -42,12 +32,13 @@ module VideoPosts =
         failwithf "Invalid youtube url. Must use embed link!"
 
       try
-        { Title = lookup.["Title"]
-          Url = relativeFile.Replace("\\", "/")
-          ContentUrl =  lookup.["ContentUrl"]
-          Description = lookup.["Description"]
-          Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
-          AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
-          PostAuthor = lookup.["PostAuthor"]
-        }
+        VideoHeader(
+            { Title = lookup.["Title"]
+              Url = relativeFile.Replace("\\", "/")
+              ContentUrl =  lookup.["ContentUrl"]
+              Description = lookup.["Description"]
+              Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
+              AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
+              PostAuthor = lookup.["PostAuthor"]
+            })
       with _ -> failwithf "Invalid header in the following blog file: %s" file

@@ -22,6 +22,10 @@
                     @:&nbsp; &nbsp;| &nbsp;&nbsp;
                 }
                 @PostDate(video.AddedDate)
+                @if (video.Tags.Any())
+                {
+                    @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", video.Tags)
+                }
                 </small><br />
             </p>
             <p>@video.Description</p>

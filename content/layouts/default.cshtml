@@ -57,26 +57,34 @@
     <leftpanel class="smaller">
         <h2>Jet is hiring!</h2>
         <p>
-            <ul>
+            <ol>
                 <li><a href="https://jet.com/about-us/join-our-crew">Join our crew</a></li>
                 <li><a href="http://careers.stackoverflow.com/jobs/employer/Jet.com">StackOverflow Careers</a></li>
                 <li><a href="https://www.linkedin.com/vsearch/j?page_num=1&keywords=Jet%2Ecom&locationType=Y&f_C=5268907&trk=careers_promo_module_see_jobs">LinkedIn Jobs</a></li>
                 <li><a href="http://www.indeed.com/cmp/Jet.com-3">Indeed Listings</a></li>
+            </ol>
+        </p>
+<!--        <h2>Tags</h2>
+        @foreach (var tag in Model.TaglyPosts)
+        {
+            <a href="@Model.Root/blog/tag/@tag.Item2/index.html">@tag.Item1</a>
+        }
+        <br />-->
+        <h2>Videos we recommend</h2>
+        <p>
+            <ul>
+                @foreach (var vid in Model.Videos)
+                {
+                    <li><a href="@Model.Root/videos/@vid.Url/index.html">@vid.Title</a></li>
+                }
             </ul>
         </p>
-        <!--                  <h2>Tags</h2>
-                            @foreach (var tag in Model.TaglyPosts)
-                            {
-                                <a href="@Model.Root/blog/tag/@tag.Item2/index.html">@tag.Item1</a>
-                            }
-        -->
     </leftpanel>
     <section>
         @RenderBody()
     </section>
     <footer>
         <p><small>Hosted on GitHub Pages, using FsBlog. Because F# |> Jet <3.</small></p>
-        <p class="sitelink"><a class="social-icons" href="http://jet.com">visit Jet.com</a></p>
     </footer>
     <script src="@Model.Root/javascripts/scale.fix.js"></script>
 </body>

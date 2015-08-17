@@ -8,6 +8,7 @@ open FileHelpers
 open PostHelpers
 open System.Xml.Linq
 open FSharp.Literate
+open BlogTypes
 
 // --------------------------------------------------------------------------------------
 // Blog - the main blog functionality
@@ -17,7 +18,8 @@ module Blog =
 
   /// Represents the model that is passed to all pages
   type Model = 
-    { Posts : BlogHeader[] 
+    { AllPosts : Header[]
+      Posts : BlogHeader[]
       MonthlyPosts : (int * string * seq<BlogHeader>)[]
       TaglyPosts : (string * string * seq<BlogHeader>)[]
       Videos : seq<VideoHeader>
@@ -28,11 +30,25 @@ module Blog =
   /// Walks over all blog post files and loads model (caches abstracts along the way)
   let LoadModel(tagRenames, transformer, (root:string), blog, video) = 
     let urlFriendly (s:string) = s.Replace("#", "sharp").Replace(" ", "-").Replace(".", "dot")
-    let posts = LoadPosts tagRenames transformer blog ParseBlogHeader
-    let videos = LoadPosts tagRenames transformer video ParseVideoHeader
+
+    let p = LoadPosts tagRenames transformer blog ParseBlogHeader 
+    let posts = p |> Array.choose (fun p -> match p with 
+                                            | BlogHeader(p) -> Some(p)
+                                            | VideoHeader(p) -> None)
+    let v = LoadPosts tagRenames transformer video ParseVideoHeader
+    let videos = v |> Array.choose (fun p -> match p with 
+                                                | BlogHeader(p) -> None
+                                                | VideoHeader(p) -> Some(p))
+    let allposts = 
+        Array.concat [|p; v|]
+        |> Array.sortBy(fun p -> match p with 
+                                    | BlogHeader(p) -> p.AddedDate
+                                    | VideoHeader(p) -> p.AddedDate)
+
     let uk = System.Globalization.CultureInfo.GetCultureInfo("en-GB")
 
-    { Posts = posts
+    { AllPosts = allposts
+      Posts = posts
       GenerateAll = false
       TaglyPosts = 
         query { for p in posts do

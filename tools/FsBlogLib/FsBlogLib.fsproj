@@ -611,6 +611,7 @@
     <Compile Include="Razor.fs" />
     <Compile Include="UrlUtilities.fs" />
     <Compile Include="FileHelpers.fs" />
+    <Compile Include="BlogTypes.fs" />
     <Compile Include="PostHelpers.fs" />
     <Compile Include="BlogPosts.fs" />
     <Compile Include="VideoPosts.fs" />
