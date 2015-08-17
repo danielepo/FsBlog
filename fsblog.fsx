@@ -141,6 +141,8 @@ Target "New" (fun _ ->
     | "", "", _, ""  -> CreateFsxPost blog fsx
     | "", "", "", _  -> 
         let name, tags = getBuildParam "name", getBuildParam "tags"
+        if video.Contains("youtube") && not <| video.Contains("embed") then
+            failwithf "Invalid youtube url. Must use embed link!"
         CreateVideoPost videos video name tags
     | _, _, _, _     -> traceError "Please specify only one argument, 'post', 'page', 'video', or 'fsx'."
 )

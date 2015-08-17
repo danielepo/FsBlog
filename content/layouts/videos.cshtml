@@ -22,26 +22,9 @@
                     @:&nbsp; &nbsp;| &nbsp;&nbsp;
                 }
                 @PostDate(video.AddedDate)
-                @if (Tags.Any())
-                {
-                    @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", Tags)
-                }
-               
                 </small><br />
             </p>
             <p>@video.Description</p>
-            @if (video.Url.Contains("youtube"))
-            {
-                var splitUrl = @video.ContentUrl.Split('/');
-                var videoId = splitUrl[splitUrl.Length - 1];
-                <div class="youtube-container">
-                    <div class="youtube-player" data-id="@videoId" width="200" height="113"></div>
-                </div>
-            }
-            else
-            {
-                @:<iframe width="200" height="113" src="@video.ContentUrl" frameborder="0" allowfullscreen></iframe>
-            }
         </div>
     }
 </div>

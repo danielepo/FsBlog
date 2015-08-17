@@ -11,10 +11,15 @@ module UrlUtilities =
         |> Seq.map (fun x -> x.InnerText())
         |> Seq.toArray
 
-    let get_descriptions (url:string) =
+    let get_descriptions (url1:string) =
+        let uri = Uri(url1)
+        let url = 
+            if uri.Host.Contains("youtube") then
+                let youtubeId = url1.Split('/')
+                "https://" + uri.Host + "/watch?v=" + youtubeId.[youtubeId.Length-1]
+            else 
+                url1
         let results = HtmlDocument.Load(url)
-
-        let uri = Uri(url)
 
         // Site specific strategies are how Facebook 
         // and such started... I'm sure over time with careful
