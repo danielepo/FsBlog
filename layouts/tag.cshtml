@@ -27,10 +27,10 @@
 }
     <p class="view">
         @tagline(@post.PostAuthor, @post.AddedDate, @post.Tags)
-<br />
-    @post.Abstract
-</p>
+        <br />
+        @post.Abstract
+    </p>
 
-<p><a href="@Model.Root/blog/@post.Url/index.html">Continue reading...</a></p>
-<hr />
+    <p><a href="@Model.Root/blog/@post.Url/index.html">Continue reading...</a></p>
+    <hr />
 }
