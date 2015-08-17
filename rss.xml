@@ -4,16 +4,18 @@
     <link>http://techgroup.jet.com/</link>
     <description>This is the Jet Technology blog</description>
     <item>
-      <title>Rachel Reese speaks at Microservices NYC</title>
-      <guid>http://techgroup.jet.com//blog/2015/08-17-rachel-reese-speaks-at-microservices-nyc</guid>
-      <link>http://techgroup.jet.com//blog/2015/08-17-rachel-reese-speaks-at-microservices-nyc/index.html</link>
-      <pubDate>Mon, 17 Aug 2015 14:37:34 GMT</pubDate>
-      <description>&lt;p&gt;Last week, our Rachel Reese spoke at the &lt;a href="http://www.meetup.com/Microservices-NYC/"&gt;Microservices NYC&lt;/a&gt; group, in a space at &lt;a href="http://info.thoughtworks.com/new-york/"&gt;ThoughtWorks NYC&lt;/a&gt; space about our microservice architecture -- what building an event-driven microservice architecture means to us, as well as the lessons we have learned along the way. There was a fabulous discussion afterwards covering many features of our set up. If you haven't joined the microservices group yet, do so now! Better yet, offer to speak! ;) They're also on &lt;a href="https://twitter.com/microservicesny"&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+      <title>Realtime Pricing, Realtime Advertising.</title>
+      <guid>http://techgroup.jet.com//blog/2015/08-17-realtime-pricing-realtime-advertising</guid>
+      <link>http://techgroup.jet.com//blog/2015/08-17-realtime-pricing-realtime-advertising/index.html</link>
+      <pubDate>Mon, 17 Aug 2015 05:49:01 GMT</pubDate>
+      <description>&lt;p&gt;&lt;img src="/images/blog cover.PNG" alt="Cetaphil on Google PLAs" /&gt;&lt;/p&gt;
+
+&lt;p&gt;When you have millions of products for sale and you have an algorithmic and dynamic pricing system for price changes on those products, what can possibly go wrong when advertising them?&lt;/p&gt;
 
 
 </description>
-      <image>talks/pp-microservices.png</image>
-      <postAuthor>Rachel Reese</postAuthor>
+      <image>/images/blog cover.PNG</image>
+      <postAuthor>Louie Bacaj</postAuthor>
     </item>
     <item>
       <title>Training</title>

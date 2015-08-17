@@ -4,26 +4,18 @@
 <h2>@Title</h2>
 <p class="view">
     <small>
-        @if (PostAuthor != ""){
-            @:Posted by
-            @PostAuthor
-                }
-       @if (Tags.Any())
+        @if (PostAuthor != "")
+        {
+            @:Posted by 
+            @PostAuthor 
+            @:&nbsp; &nbsp;| &nbsp;&nbsp;
+        }
+        @if (Tags.Any())
         {
             @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", Tags)
-                }
+        }
 
     </small><br />
+    <iframe width="640" height="360" src="@ContentUrl" frameborder="0" allowfullscreen></iframe>
 </p>
 <p>@Description</p>
-@if (ContentUrl.Contains("infoq"))
-{
-    var splitUrl = @ContentUrl.Split('/');
-    var videoId = splitUrl[splitUrl.Length - 1];
-    var imagelink = "http://cdn.infoq.com/statics_s1_20150807-0037u2/resource/presentations/" + @videoId + "/en/slides/sl1.jpg";
-    <a href="@ContentUrl"><img src="@imagelink" width="595"/></a>
-}
-else
-{
-    @:<iframe width="640" height="360" src="@ContentUrl" frameborder="0" allowfullscreen></iframe>
-}

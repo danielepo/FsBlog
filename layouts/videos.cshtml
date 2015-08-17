@@ -22,13 +22,15 @@
                     @:&nbsp; &nbsp;| &nbsp;&nbsp;
                 }
                 @PostDate(video.AddedDate)
-                @if (video.Tags.Any())
+                @if (Tags.Any())
                 {
-                    @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", video.Tags)
+                    @:&nbsp; &nbsp;| &nbsp; &nbsp; @String.Join(", ", Tags)
                 }
+               
                 </small><br />
             </p>
             <p>@video.Description</p>
+            <iframe width="200" height="113" src="@video.ContentUrl" frameborder="0" allowfullscreen></iframe>
         </div>
     }
 </div>
