@@ -170,7 +170,7 @@ module PostHelpers =
     CreateFile path fsxHeader "fsx" title
 
   let fixformatting (str:string) = 
-    str.Replace(System.Environment.NewLine, "").Replace("Summary ", "").Trim()
+    str.Replace(System.Environment.NewLine, "").Replace("Summary ", "").Replace(" - YouTube","").Trim()
 
   let CreateVideoPost path url author tags = 
     let title = sprintf "\"%s\"" <| fixformatting (Array.get (UrlUtilities.get_titles url) 0)

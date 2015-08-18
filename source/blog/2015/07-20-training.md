@@ -2,7 +2,7 @@
     Layout = "post";
     Title = "Training";
     AddedDate = "2015-07-20T08:30:11";
-    Tags = "F#, ContinuousLearning";
+    Tags = "F#, Continuous Learning";
     Description = "";
     Image = "JetLovesFSharp.png";
     PostAuthor = "Rachel Reese";
