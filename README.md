@@ -24,11 +24,11 @@ To create a new blog post, run
 ```
 This generates a new markdown file in source/blog/current-year/. If your post contains images (it should!) create a new folder under content/images/ and place them in there. 
 
-You may also want to write a code-heavy post. Running
+You may also want to write a code-heavy post. To do so, run
 ```
 	fake new fsx="My script post" 
 ```
-will create a new blank .fsx file in source/blog/current-year/. To find out more about using .fsx files as the source of your posts, check out [F# Formatting: Literate programming](http://tpetricek.github.io/FSharp.Formatting/demo.html). 
+This will create a new blank .fsx file in source/blog/current-year/. To find out more about using .fsx files as the source of your posts, check out [F# Formatting: Literate programming](http://tpetricek.github.io/FSharp.Formatting/demo.html). 
 
 ## Adding a new video to the sidebar
 To add a Jet-recommended video to our list, run 
