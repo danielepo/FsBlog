@@ -151,9 +151,9 @@ leftpanel {
     float: left;
     clear:both;
     position:relative;
-    width: 15%;
+    width: 16%;
     height: 600px;
-    margin:1% 0 5% 2%;
+    margin:1% 0 5% 1%;
     padding:1%;
     background-color:white;
     color:white;
@@ -167,7 +167,6 @@ leftpanel ul {
 
 leftpanel ol {
     list-style:none;
-    list-style-position:outside;
 }
 
 leftpanel li {
