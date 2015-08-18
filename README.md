@@ -35,7 +35,7 @@ To add a Jet-recommended video to our list, run
 ```
 	fake new video="video url" name="your name" tags="comma-delimited list of tags"
 ```
-This will automatically generate the title and description for youtube, vimeo, and infoQ videos (thanks Jim!), and then create an md file in source/videos/current-year/. NB: For a youtube video, you must use the embed link! (otherwise we can't find the description.) 
+This will automatically generate the title and description for youtube, vimeo, and infoQ videos (thanks Jim!), and then create an md file in source/videos/current-year/. **NB: For a youtube video, you must use the embed link! (otherwise we can't find the description.)**
 
 ## Previewing your changes
 To double-check everything once you're done, run
