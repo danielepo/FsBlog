@@ -2,7 +2,7 @@
     Layout = "post";
     Title = "Realtime Pricing, Realtime Advertising.";
     AddedDate = "2015-08-17T01:49:01";
-    Tags = "F#, Micro Services, Marketing Tech";
+    Tags = "F#, microservices, Marketing Tech";
     Description = "Google PLAs";
     Image = "";
     PostAuthor = "Louie Bacaj";
