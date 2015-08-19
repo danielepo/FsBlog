@@ -37,6 +37,7 @@ module VideoPosts =
               Url = relativeFile.Replace("\\", "/")
               ContentUrl =  lookup.["ContentUrl"]
               Description = lookup.["Description"]
+              Image = lookup.["Image"]
               Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
               AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
               PostAuthor = lookup.["PostAuthor"]

@@ -20,6 +20,7 @@ module BlogTypes =
       AddedDate : System.DateTime
       Url : string
       ContentUrl : string
+      Image : string
       Tags : seq<string> 
       PostAuthor : string 
     }

@@ -23,6 +23,10 @@
     var imagelink = "http://cdn.infoq.com/statics_s1_20150807-0037u2/resource/presentations/" + @videoId + "/en/slides/sl1.jpg";
     <a href="@ContentUrl"><img src="@imagelink" width="595" height="100%"/></a>
 }
+else if (Image != "")
+{
+    <a href="@ContentUrl"><img src="@Image" width="595" height="100%" /></a>
+}
 else
 {
     @:<iframe width="640" height="360" src="@ContentUrl" frameborder="0" allowfullscreen></iframe>

@@ -11,14 +11,14 @@ module UrlUtilities =
         |> Seq.map (fun x -> x.InnerText())
         |> Seq.toArray
 
-    let get_descriptions (url1:string) =
-        let uri = Uri(url1)
+    let get_descriptions (url2:string) =
+        let uri = Uri(url2)
         let url = 
             if uri.Host.Contains("youtube") then
-                let youtubeId = url1.Split('/')
+                let youtubeId = url2.Split('/')
                 "https://" + uri.Host + "/watch?v=" + youtubeId.[youtubeId.Length-1]
             else 
-                url1
+                url2
         let results = HtmlDocument.Load(url)
 
         // Site specific strategies are how Facebook 
@@ -38,7 +38,6 @@ module UrlUtilities =
             |> Seq.filter(fun (text, id) -> id = "summary")
             |> Seq.map(fun (text, id) -> text)
             |> Seq.toArray
-
         | "www.vimeo.com"
         | "vimeo.com" ->
             results.Descendants ["div"]

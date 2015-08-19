@@ -112,8 +112,9 @@ module PostHelpers =
     Layout = "video";
     Tags = "%s";
     ContentUrl = "%s";
-    Title = %s;
-    Description = %s;
+    Image = "";
+    Title = "%s";
+    Description = "%s";
     PostAuthor = "%s";
     AddedDate = "%s";
 }"""  tags url title description author (date.ToString("yyyy-MM-ddThh:mm:ss")) 
@@ -173,7 +174,10 @@ module PostHelpers =
     str.Replace(System.Environment.NewLine, "").Replace("Summary ", "").Replace(" - YouTube","").Trim()
 
   let CreateVideoPost path url author tags = 
-    let title = sprintf "\"%s\"" <| fixformatting (Array.get (UrlUtilities.get_titles url) 0)
-    let description = sprintf "\"%s\""<| fixformatting (Array.get (UrlUtilities.get_descriptions url) 0)
+    let title = sprintf "%s" <| fixformatting (Array.get (UrlUtilities.get_titles url) 0)
+    let description = sprintf "%s"<| fixformatting (Array.get (UrlUtilities.get_descriptions url) 0)
+//    let image = if url.Contains("skillsmatter") or url.Contains("infoq") then
+//                    sprintf "%s" <| fixformatting (Array.get (UrlUtilities.get_images url) 0)
+//                else ""
     printf "Found video: %s\nwith description:\n%s\n" title description
     CreateFile path (videoHeader author tags url description) "md" title
