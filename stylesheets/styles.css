@@ -130,7 +130,6 @@ strong {
 
 header {
   width:92%;
-  display:block;
   height:50px;
   vertical-align:top;
   padding: 15px 4%;
@@ -241,11 +240,6 @@ footer {
         clear: both;
     }
 
-    header, section, footer {
-        position: static;
-        vertical-align: middle;
-    }
-
     leftpanel {
         margin: 1% 1% 5% 2%;
         width:15%;
@@ -253,8 +247,7 @@ footer {
     }
 
     section {
-        border: 1px solid #e5e5e5;
-        border-width: 1px 0;
+        width:70%;
         padding: 20px;
         margin: 1% 0 0 0;
         float:left;
