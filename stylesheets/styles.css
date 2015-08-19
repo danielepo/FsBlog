@@ -121,6 +121,7 @@ th {
 img {
   max-width:100%;
   margin: 0 20px;
+  max-height: 100%;
 }
 
 strong {
@@ -210,7 +211,8 @@ footer {
 }
 
 .video {
-    break-inside:avoid;
+    break-inside:avoid-column;
+    break-before:auto;
 }
 
 @media screen {
@@ -402,4 +404,3 @@ footer {
     font-size:small;
     margin:0;
 }
-
