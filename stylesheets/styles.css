@@ -242,13 +242,13 @@ footer {
     }
 
     header, section, footer {
-        float: none;
         position: static;
         vertical-align: middle;
     }
 
     leftpanel {
-        margin: 1% 3% 5% 1%;
+        margin: 1% 1% 5% 2%;
+        width:15%;
         padding: 20px 5% 0 0;
     }
 
@@ -272,10 +272,6 @@ footer {
 @media all and (max-width: 720px) {
     body {
         word-wrap: break-word;
-    }
-
-    header {
-        padding: 10px;
     }
 
         header ul, header p.view {
@@ -310,12 +306,14 @@ footer {
         display: none;
     }
 
+    leftpanel ul {
+        list-style-type:none;
+    }
+
     img {
         margin: 5px;
     }
 }
-
-
 
 @media print {
   body {
