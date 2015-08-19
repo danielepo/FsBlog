@@ -46,7 +46,7 @@ It is safe to say we are pushing the .NET stack with F# to places where it's nev
 
 > *It is safe to say we are pushing the .NET stack with F# to places where it's never been before.*
 
-The way we use F#, I think, is pretty unique. We build lots of F# Micro Services that are supported by some very cleaver in house libraries that abstract away lots of complexity and greatly simplify development. Given that F# is a functional first language that defaults to immutable constructs, this alone is extremely helpful in being able to manage this type of complex system.
+The way we use F#, I think, is pretty unique. We build lots of F# Micro Services that are supported by some very clever in-house libraries that abstract away lots of complexity and greatly simplify development. Given that F# is a functional first language that defaults to immutable constructs, this alone is extremely helpful in being able to manage this type of complex system.
 
 To add to that, we have a strong propensity towards immutable constructs. We believe state is the root of all evil, when it comes to scale. That is why we tend to favor things like EventStore for backend event dumps. EventStore is an immutable data store and, as immutable implies, never allows you to update anything, rather write new items only. This way you always have a record of what the item looked like at any point in time.
 

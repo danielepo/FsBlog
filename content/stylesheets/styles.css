@@ -310,12 +310,14 @@ footer {
         display: none;
     }
 
+    leftpanel ul {
+        list-style-type:none;
+    }
+
     img {
         margin: 5px;
     }
 }
-
-
 
 @media print {
   body {
