@@ -2,7 +2,6 @@
 @helper PostDate(DateTime rawDate) {
     <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time>
 }
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -72,11 +71,12 @@
         <h2>Videos we <3</h2>
         <p>
             <ul>
-                @foreach (var vid in Model.Videos)
+                @foreach (var vid in Enumerable.Take(Model.Videos, 10))
                 {
                     <li><a href="@Model.Root/videos/@vid.Url/index.html">@vid.Title</a></li>
                 }
             </ul>
+<!--            <small><a href="@Model.Root/videos/">See all</a></small> -->
         </p>
     </leftpanel>
     <section>
