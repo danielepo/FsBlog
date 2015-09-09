@@ -4,6 +4,18 @@
     <link>http://techgroup.jet.com/</link>
     <description>This is the Jet Technology blog</description>
     <item>
+      <title>NYC Code Camp is October 10th!</title>
+      <guid>http://techgroup.jet.com//blog/2015/09-09-nyc-code-camp-is-october-10th</guid>
+      <link>http://techgroup.jet.com//blog/2015/09-09-nyc-code-camp-is-october-10th/index.html</link>
+      <pubDate>Wed, 09 Sep 2015 13:35:49 GMT</pubDate>
+      <description>&lt;p&gt;Are you ready for a full day of incredible content from the New York City tech community for only $10? &lt;a href="http://www.codecampnyc.org/"&gt;Code Camp NYC&lt;/a&gt; will be held October 10th at the Microsoft Offices in midtown! There's nearly a full F# track, with talks from our own &lt;a href="http://rachelree.se"&gt;Rachel Reese&lt;/a&gt; on Building Reactive Services using Functional Programming and &lt;a href="http://troykershaw.com/"&gt;Troy Kershaw&lt;/a&gt; on Composable UIs in Xamarin with F#, plus talks from both Paulmichael Blasucci and Matt Hawkins.&lt;/p&gt;
+
+
+</description>
+      <image>brooklyn-bridge.jpg</image>
+      <postAuthor>Rachel Reese</postAuthor>
+    </item>
+    <item>
       <title>F# Gotham! NY's new F# conference is coming October 17th.</title>
       <guid>http://techgroup.jet.com//blog/2015/09-03-f-gotham-ny-s-new-f-conference-is-coming-october-17th</guid>
       <link>http://techgroup.jet.com//blog/2015/09-03-f-gotham-ny-s-new-f-conference-is-coming-october-17th/index.html</link>
