@@ -260,14 +260,17 @@ footer {
         word-wrap: break-word;
     }
 
-        header ul, header p.view {
-            position: static;
-        }
+    header ul, header p.view {
+        position: static;
+    }
 
-    leftpanel {
+    leftpanel, section {
+        padding: 15px;
+    }
+
+   leftpanel {
         float: inherit;
         margin: 0;
-        padding: 0;
     }
 
     pre, code {
@@ -276,7 +279,7 @@ footer {
 }
 
 @media all and (max-width: 480px) {
-    body {
+    leftpanel, section {
         padding: 15px;
     }
 

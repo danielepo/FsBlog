@@ -2,7 +2,7 @@
     Layout = "post";
     Title = "Rachel Reese speaks at Microservices NYC";
     AddedDate = "2015-08-17T10:37:34";
-    Tags = "microservices, Community";
+    Tags = "microservices, community";
     Description = "Rachel Reese speaks at Microservices NYC";
     Image = "talks/pp-microservices.png";
     PostAuthor = "Rachel Reese";
