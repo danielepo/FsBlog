@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://techgroup.jet.com
-gitlocation: https://github.com/jet/FsBlog.git
-gitbranch: gh-pages
+gitlocation: https://Qd8FfrgfDg@jet-tech-blog.scm.azurewebsites.net:443/jet-tech-blog.git
+gitbranch: master
 title: Welcome to Jet Tech blog.
 description: This is the Jet Technology blog
 
@@ -16,5 +16,5 @@ layouts: layouts
 content: content
 template: tools/empty-template.html
 output: output/
-deploy: deploy
+deploy: ../jet-tech-blog/
 themes: themes
