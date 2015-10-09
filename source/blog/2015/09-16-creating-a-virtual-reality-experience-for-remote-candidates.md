@@ -4,7 +4,7 @@
     AddedDate = "2015-09-16T09:05:25";
     Tags = "technology";
     Description = "Creating a virtual reality experience for remote candidates";
-    Image = "/images/VR/nick_vr.JPG";
+    Image = "";
     PostAuthor = "Rachel Reese";
 }
 
