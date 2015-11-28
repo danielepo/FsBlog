@@ -73,7 +73,7 @@ module Blog =
       Videos = videos
       }
 
-  let TransformFile template hasHeader (razor:FsBlogLib.Razor) prefix current target =     
+  let TransformFile template hasHeader (razor:FsBlogLib.Razor) prefix current target = 
     let html =
       match Path.GetExtension(current).ToLower() with
       | (".fsx" | ".md") as ext ->

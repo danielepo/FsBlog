@@ -55,7 +55,7 @@ type MetadataDict() =
 type TemplateBaseExtensions<'T>() =
     inherit TemplateBase<'T>()
     
-    member private x.tryGetViewBagValue<'C> key =  
+    member private x.tryGetViewBagValue<'C> key = 
         let vb = x.ViewBag :?> DynamicViewBag
         let memBinder =
             {
@@ -77,7 +77,7 @@ type TemplateBaseExtensions<'T>() =
             vb.GetDynamicMemberNames()
             |> Seq.tryFind(fun x -> x = key)
         match names with
-        | Some(v) ->             
+        | Some(v) -> 
             vb.TryDeleteMember(memBinder) |> ignore
             vb.AddValue(key, value)
         | _ -> vb.AddValue(key, value)
@@ -116,11 +116,10 @@ type TemplateBaseExtensions<'T>() =
                 newcol.["generator"] <- "tilde"
                 x.trySetViewBagValue<IDictionary<string, obj>> "Meta" newcol
                 newcol
-        and set value = x.trySetViewBagValue<IDictionary<string, obj>> "Meta" value     
-
+        and set value = x.trySetViewBagValue<IDictionary<string, obj>> "Meta" value 
     
     member x.RenderPart(templateName) = x.RenderPart(templateName, None)
-    member x.RenderPart(templateName, ?model) =  
+    member x.RenderPart(templateName, ?model) = 
         printfn "    Resolving(partial): %s" templateName
         let filecontents = 
             if File.Exists ("_includes"+System.IO.Path.DirectorySeparatorChar.ToString() + templateName) then "_includes"+System.IO.Path.DirectorySeparatorChar.ToString() + templateName

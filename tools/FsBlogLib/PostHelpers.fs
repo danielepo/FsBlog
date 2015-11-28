@@ -35,7 +35,7 @@ module PostHelpers =
     let content = File.ReadAllText(file)
     let reg = (match ext with | ".fsx" -> scriptHeaderRegex | _ -> razorHeaderRegex).Match(content)
     if not reg.Success then 
-      failwithf "The following F# script or Markdown file is missing a header:\n%s" file  
+      failwithf "The following F# script or Markdown file is missing a header:\n%s" file 
     let header = reg.Groups.["header"].Value
     let body = reg.Groups.["content"].Value
     "@{" + header + "}\n", body
@@ -55,20 +55,20 @@ module PostHelpers =
       | _ -> failwith "File format not supported!"
     let headerMatches = headerRegex.Match(File.ReadAllText(file))
     if not headerMatches.Success then 
-      failwithf "The following source file is missing a header:\n%s" file  
+      failwithf "The following source file is missing a header:\n%s" file 
 
     let header = headerMatches.Groups.["header"].Value
     let content = headerMatches.Groups.["content"].Value
     let abstractMatches = abstractRegex.Match(content)
-    let rawAbstr = abstractMatches.Groups.["abstract"].Value      
+    let rawAbstr = abstractMatches.Groups.["abstract"].Value 
     
     use fsx = DisposableFile.Create(file.Replace(ext, "_temp_" + ext))
     use html = DisposableFile.CreateTemp(".html")
     File.WriteAllText(fsx.FileName, rawAbstr)
     if ext = ".fsx" then
-        FSharp.Literate.Literate.ProcessScriptFile(input=fsx.FileName, output=html.FileName)   
+        FSharp.Literate.Literate.ProcessScriptFile(input=fsx.FileName, output=html.FileName) 
     else
-        FSharp.Literate.Literate.ProcessMarkdown(input=fsx.FileName, output=html.FileName)    
+        FSharp.Literate.Literate.ProcessMarkdown(input=fsx.FileName, output=html.FileName) 
     let abstr = File.ReadAllText(html.FileName)
 
     file, header, abstr
@@ -125,7 +125,7 @@ module PostHelpers =
 
     let prepend a b = sprintf "%s%s" a b
 
-    let dir =  
+    let dir = 
         Regex.Matches(title, @"\w+")
         |> Seq.cast<Match>
         |> Seq.map (fun m -> m.ToString().ToLower())

@@ -22,10 +22,10 @@ type Razor(layoutsRoot) =
           { new ICompilerServiceFactory with
               member x.CreateCompilerService(name) = new RazorEngine.Compilation.CSharp.CSharpDirectCompilerService(false, null) :> _ }
         config.BaseTemplateType <- typedefof<FsBlogLib.TemplateBaseExtensions<_>>
-        config.Debug <- true        
+        config.Debug <- true 
         let templateservice = new TemplateService(config)
         Razor.SetTemplateService(templateservice)
-(*    
+(* 
     member x.LoadMarkdownFragment fragment = 
         x.viewBag <- new DynamicViewBag()
         
@@ -44,7 +44,7 @@ type Razor(layoutsRoot) =
                 |> Array.iteri(printfn "%i: %s")
                 ex.Errors |> Seq.iter(fun w -> printfn "%i(%i): %s" w.Line w.Column w.ErrorText)
                 failwithf "Exception compiling markdown fragment: %A" ex.Message
-*)               
+*) 
     member val Model = obj() with get, set
     member val ViewBag = new DynamicViewBag() with get,set
 
