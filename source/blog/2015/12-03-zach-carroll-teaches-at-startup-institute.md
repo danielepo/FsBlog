@@ -4,9 +4,11 @@
     AddedDate = "2015-12-03T11:46:46";
     Tags = "community, teaching, javascript, web design";
     Description = "Zach Carroll teaches at Startup Institute";
-    Image = "zach_teaching_at_siny.jpg";
+    Image = "";
     PostAuthor = "Rachel Reese";
 }
+
+![Zach Carroll teaching at Startup Institute](/images/zach_teaching_at_siny.jpg)
 
 Thanks to our Zach Carroll, a new cohort of [Startup Institute](https://www.startupinstitute.com/) folks is learning Javascript! He spent the last couple days teaching an intro level class on Javascript, focusing on Objects, Arrays, and Functions. 
 
