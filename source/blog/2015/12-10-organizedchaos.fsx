@@ -40,9 +40,6 @@ module Types =
     open Newtonsoft.Json
     open Marvel.EventStore
 
-
-
-
 module service = 
     open System
     open EventStore.ClientAPI
@@ -70,7 +67,7 @@ compute
 (**
 As mentioned by previous bloggers, our whole system is hosted on Microsoft Azure. With a quick Google search, you will notice that Azure has its own form of Chaos Monkey, called WazMonkey. While WazMonkey is very successful, we wanted to be able to stop instances rather than entire services (i.e. not bring down the entire cluster but instead bring down nodes). We also wanted to incorporate some of our in-house architecture while also using F# to eventually allow Chaos to be part of the continuous integration cycle (i.e. run it every day).
 
-We have an AzureHelper module that allows us to access Azure's REST API through different libraries and perform tasks such as: getting deployment details (how many instances are contained in a particular cloud service), select a random instance, restart and instance, stop an instance, etc.
+We have an AzureHelper module that allows us to access Azure's REST API through different libraries and perform tasks such as: getting deployment details (how many instances are contained in a particular cloud service), select a random instance, restart an instance, stop an instance, etc.
 
 *)
 
