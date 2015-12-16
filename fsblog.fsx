@@ -123,16 +123,16 @@ Target "Preview" (fun _ ->
     run ()
 
     traceImportant "Press Ctrl+C to stop!"
-    // wat!?    
+    // wat!?
     while true do ()
 )
 
-Target "New" (fun _ ->       
+Target "New" (fun _ -> 
     let post, fsx, page, video = 
         getBuildParam "post", 
         getBuildParam "fsx",
         getBuildParam "page",
-        getBuildParam "video"   
+        getBuildParam "video"
     
     match page, post, fsx, video with
     | "", "", "", "" -> traceError "Please specify either a new 'page', 'post', video, or 'fsx'."
