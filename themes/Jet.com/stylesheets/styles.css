@@ -281,6 +281,7 @@ footer {
 @media all and (max-width: 480px) {
     leftpanel, section {
         padding: 15px;
+        width : 90%;
     }
 
     h1 {
