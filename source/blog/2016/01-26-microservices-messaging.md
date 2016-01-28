@@ -81,24 +81,28 @@ The rest of the post discusses some techniques to do the hybrid processing of th
 
 Consider microservice `A`, which generates output messages that microservice `B` needs to process. 
 
-    [A] ========== [B]
+
+     [A] ========== [B]
+
  
 Instead of using one queue for communication; `A` can write to `n` queues. 
 
-	    ==========
-	    ==========
-	[A]     .      [B]
-	        .
-	    ==========
+
+        ==========
+        ==========
+    [A]     .      [B]
+            .
+        ==========
 
 
 Each message can then go to one of the `n` queues depending on how you hash out its group identifier (say Customer Order ID). We can then run multiple instances of the microservice `B` (atmost `n`) and have it read inputs from one of more queues. These instances can all be on the same machine, if needed. 
 
-	    ========== [B]
-	    ========== [B]
-	[A]     .       .
-	        .       .
-	    ========== [B]
+
+        ========== [B]
+        ========== [B]
+    [A]     .       .
+            .       .
+        ========== [B]
 
 An advantage of this model is that the producing & consuming microservices can remain agnostic to overall setup of the services. You may still need to apply some additional techniques such as consistent hashing w/ virtual nodes to support a dynamic number of microservice `B` instances. But the downside remains that you will need to manage the `n` queues that are required for each `topic`. 
 
@@ -132,10 +136,10 @@ Translating the above model, while further simplifying to reduce complexity, the
 
 Consider the flow below.
 
-	                                     | -> ... a2  
-	[a6 a5 a4 b6 b5 b4 c6 c5 c4 a3 ] ->  | -> ... b3
-	                                     | -> ... 
-	         [incoming messages]    <-   { ->> state <<- }
+                                         | -> ... a2  
+    [a6 a5 a4 b6 b5 b4 c6 c5 c4 a3 ] ->  | -> ... b3
+                                         | -> ... 
+             [incoming messages]    <-   { ->> state <<- }
 
 On the left side of the flow, we have the incoming messages. On the right, each `-> ...` indicates an execution and these executions forms the current state. The messages labeled with the same character belong to the same group (eg: a1, a2, a3 are one group and b1,b2, b3 form another group, etc). Order must be maintained within the group but messages across the groups can be executed in any order. From the current state, notice that `a2` and `b3` are being executed. The next message - `a3` cannot be executed since another message of the same group `a2` is actively being processed and thus we block until `a2` gets processed completely. 
 
