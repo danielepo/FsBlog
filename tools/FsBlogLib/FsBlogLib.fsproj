@@ -39,25 +39,22 @@
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\4.0\Framework\v4.0\Microsoft.FSharp.targets</FSharpTargetsPath>
-  </PropertyGroup>
   <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '11.0'">
-      <PropertyGroup Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')">
+    <When Condition="'$(VisualStudioVersion)' == '11.0' AND Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets') AND $(FSharpTargetsPath) == ''">
+      <PropertyGroup>
         <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets</FSharpTargetsPath>
       </PropertyGroup>
     </When>
-    <When Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets')">
+    <When Condition="'$(VisualStudioVersion)' == '11.0' AND Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\4.0\Framework\v4.0\Microsoft.FSharp.Targets') AND $(FSharpTargetsPath) == ''">
+      <PropertyGroup>
+        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\4.0\Framework\v4.0\Microsoft.FSharp.Targets</FSharpTargetsPath>
+      </PropertyGroup>
+    </When>
+    <When Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets') AND $(FSharpTargetsPath) == ''">
       <PropertyGroup>
         <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
       </PropertyGroup>
     </When>
-    <Otherwise>
-      <PropertyGroup>
-        <FSharpTargetsPath>..\..\..\tools\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
-      </PropertyGroup>
-    </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
@@ -227,25 +224,25 @@
               <HintPath>..\..\packages\FSharp.Compiler.Service\lib\net45\FSharp.Compiler.Service.dll</HintPath>
               <Private>False</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="FSharp.Configuration, Version=0.4.4.0, Culture=neutral, PublicKeyToken=null">
               <HintPath>..\..\packages\FSharp.Configuration\lib\net40\FSharp.Configuration.dll</HintPath>
-              <Private>False</Private>
+              <Private>True</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="SharpYaml, Version=1.1.0.21031, Culture=neutral, PublicKeyToken=1ced8108e942bc02">
               <HintPath>..\..\packages\FSharp.Configuration\lib\net40\SharpYaml.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="CSharpFormat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
               <HintPath>..\..\packages\FSharp.Formatting\lib\net40\CSharpFormat.dll</HintPath>
               <Private>False</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="FSharp.CodeFormat, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
               <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.CodeFormat.dll</HintPath>
@@ -257,25 +254,25 @@
               <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.Markdown.dll</HintPath>
               <Private>False</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="FSharp.MetadataFormat, Version=2.4.36.0, Culture=neutral, PublicKeyToken=null">
               <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.MetadataFormat.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
               <HintPath>..\..\packages\Microsoft.AspNet.Razor\lib\net40\System.Web.Razor.dll</HintPath>
-              <Private>True</Private>
+              <Private>False</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
             <Reference Include="RazorEngine, Version=3.3.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a">
               <HintPath>..\..\packages\RazorEngine\lib\net40\RazorEngine.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
-              <SpecificVersion>True</SpecificVersion>
+              <SpecificVersion>False</SpecificVersion>
             </Reference>
           </ItemGroup>
         </Otherwise>
@@ -354,40 +351,29 @@
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="FSharp.Data, Version=2.2.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="FSharp.Data">
       <HintPath>..\..\packages\FSharp.Data\lib\net40\FSharp.Data.dll</HintPath>
-      <SpecificVersion>True</SpecificVersion>
-      <Private>False</Private>
     </Reference>
     <Reference Include="FSharp.Literate, Version=2.4.36.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.Literate.dll</HintPath>
       <SpecificVersion>True</SpecificVersion>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="System">
+      <Private>False</Private>
     </Reference>
-    <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Private>True</Private>
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
     </Reference>
-    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="System.Numerics">
+      <Private>False</Private>
     </Reference>
-    <Reference Include="System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
     </Reference>
-    <Reference Include="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
-    </Reference>
-    <Reference Include="System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 </Project>
