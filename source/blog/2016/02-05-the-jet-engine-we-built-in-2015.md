@@ -10,7 +10,7 @@
 
 ---
 
-![Jet Engine](/images/jetengine.png)
+![Jet Engine](/images/jetengine.PNG)
 
 ###So you want to build a massive online eCommerce platform?
 
