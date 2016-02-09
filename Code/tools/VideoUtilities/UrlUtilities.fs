@@ -1,7 +1,8 @@
 ﻿namespace VideoUtilities
 
+open FSharp.Data
+
 module UrlUtilities =
-    open FSharp.Data
     open System
 
     let get_titles (url:string) =
@@ -68,3 +69,41 @@ module UrlUtilities =
 //                if String.length (x.InnerText()) > 100 then Some (x.InnerText()) else None)
 //            |> Seq.toArray
             [|""|]
+
+module JobPostings = 
+  open System 
+
+  type Postings = HtmlProvider<"https://boards.greenhouse.io/embed/job_board?for=jet&amp;b=https://jet.com/about-us/working-at-jet/jobs">
+
+  let private getPosts = 
+      Postings.Load("https://boards.greenhouse.io/embed/job_board?for=jet&amp;b=https://jet.com/about-us/working-at-jet/jobs").Html.Body().Descendants ["div"]
+                      |> Seq.filter (fun p -> p.HasAttribute("class", "opening"))
+                      |> Seq.filter (fun p -> p.HasAttribute("department_id", "6296"))
+                      |> Seq.map (fun a -> 
+                                    let link = a.Descendants ["a"] |> Seq.head  
+                                    (link.InnerText(), link.Attribute("href").Value())
+                                  )
+
+  let getRandomPosting now = 
+    let rnd = new Random(now)
+
+    let knuthShuffle (seq : 'b seq) = 
+        let arr = seq |> Seq.toArray
+        let swap i j =
+            let item = arr.[i]
+            arr.[i] <- arr.[j]
+            arr.[j] <- item
+        let ln = arr.Length
+        [0..(ln - 2)]
+        |> Seq.iter (fun i -> swap i (rnd.Next(i, ln)))
+        arr
+
+    let randomPick (arr: 'b array) = 
+        let index = rnd.Next arr.Length
+        arr.[index]
+
+    getPosts
+    |> knuthShuffle
+    |> randomPick
+
+

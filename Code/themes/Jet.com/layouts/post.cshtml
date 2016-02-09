@@ -3,7 +3,8 @@
 }
 <h1>@Title</h1>
 <small>
-    @PostAuthor
+    @PostAuthor &nbsp; &nbsp;| &nbsp; &nbsp;
+    @AddedDate.ToString()
     @if (Tags.Any())
     {
         @:&nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", @Tags)
