@@ -27,6 +27,7 @@ module BlogPosts =
             | _ -> failwithf "Invalid header in the following blog file: %s" file ) |> dict
       let relativeFile = file.Substring(blog.Length)
       let relativeFile = let idx = relativeFile.LastIndexOf('.') in relativeFile.Substring(0, idx)
+      let jobName, jobUrl = JobPostings.getRandomPosting (int System.DateTime.Now.Ticks)
       try
       BlogHeader(
         { Title = lookup.["Title"]
@@ -36,5 +37,8 @@ module BlogPosts =
           Tags = lookup.["Tags"].Split([|','|], System.StringSplitOptions.RemoveEmptyEntries) |> Array.map (fun s -> s.Trim() |> renameTag)
           AddedDate = lookup.["AddedDate"] |> System.DateTime.Parse 
           Image = lookup.["Image"]
-          PostAuthor = lookup.["PostAuthor"]})
+          PostAuthor = lookup.["PostAuthor"]
+          JobPostingName = jobName
+          JobPostingUrl = jobUrl
+          })
       with _ -> failwithf "Invalid header in the following blog file: %s" file

@@ -164,7 +164,7 @@ module PostHelpers =
 
   /// Creates a new blank markdown post.
   let CreateMarkdownPost path title = 
-    CreateFile path (markdownHeader "post") "md" title
+    CreateFile path (markdownHeader "post") "md" title 
 
   /// Creates a new blank fsx post.
   let CreateFsxPost path title = 

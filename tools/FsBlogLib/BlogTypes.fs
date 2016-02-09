@@ -11,7 +11,10 @@ module BlogTypes =
       Url : string
       Tags : seq<string> 
       Image : string
-      PostAuthor : string}
+      PostAuthor : string
+      JobPostingName : string
+      JobPostingUrl : string      
+      }
       
   /// Type that stores information about video posts
   type VideoHeader = 

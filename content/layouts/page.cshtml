@@ -2,7 +2,7 @@
 {
     <time datetime="@rawDate.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss")" pubdate data-updated="true">@rawDate.ToString("MMM d, yyyy")</time> }
 
-@helper tagline(string author, DateTime addeddate, IEnumerable<string> tags)
+@helper tagline(string author, DateTime addeddate, IEnumerable<string> tags, string jobName, string jobUrl)
 {
     <small>
         @author &nbsp; &nbsp;| &nbsp; &nbsp;
@@ -11,6 +11,7 @@
         {
             @:&nbsp;&nbsp;| &nbsp;&nbsp;@String.Join(", ", @tags)
         }
+        &nbsp;&nbsp;| &nbsp;&nbsp; <a href="@jobUrl">We're hiring: @jobName!</a>
     </small>
 }
 
@@ -26,7 +27,7 @@
         @:<img src="@Model.Root/images/@post.Image" style="float:right;max-width:300px;max-height:300px;margin:20px;" />
 }
     <p class="view">
-        @tagline(@post.PostAuthor, @post.AddedDate, @post.Tags)
+        @tagline(@post.PostAuthor, @post.AddedDate, @post.Tags, @post.JobPostingName, @post.JobPostingUrl)
 <br />
     @post.Abstract
 </p>

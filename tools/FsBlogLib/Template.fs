@@ -106,6 +106,12 @@ type TemplateBaseExtensions<'T>() =
     member x.Url
         with get() = defaultArg (x.tryGetViewBagValue<string> "Url") ""
         and set value = x.trySetViewBagValue<string> "Url" value
+    member x.JobPostingName
+        with get() = defaultArg (x.tryGetViewBagValue<string> "JobPostingName") ""
+        and set value = x.trySetViewBagValue<string> "JobPostingName" value
+    member x.JobPostingUrl
+        with get() = defaultArg (x.tryGetViewBagValue<string> "JobPostingUrl") ""
+        and set value = x.trySetViewBagValue<string> "JobPostingUrl" value
     member x.Meta
         with get() : IDictionary<string, obj> = 
             let res = x.tryGetViewBagValue<IDictionary<string, obj>> "Meta"
