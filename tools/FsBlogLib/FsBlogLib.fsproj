@@ -137,11 +137,6 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
-            <Reference Include="FSharp.Literate">
-              <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.Literate.dll</HintPath>
-              <Private>True</Private>
-              <Paket>True</Paket>
-            </Reference>
             <Reference Include="FSharp.Markdown">
               <HintPath>..\..\packages\FSharp.Formatting\lib\net40\FSharp.Markdown.dll</HintPath>
               <Private>True</Private>

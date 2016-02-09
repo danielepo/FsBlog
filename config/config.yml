@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://techgroup.jet.com
+url: http://tech.jet.com
 gitlocation: https://rachelatjet@jet-tech-blog.scm.azurewebsites.net:443/jet-tech-blog.git
 gitbranch: master
 title: Welcome to Jet Tech blog.
