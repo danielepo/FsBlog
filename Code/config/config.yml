@@ -15,6 +15,6 @@ blogIndex: ..\BlogContent\blog\index.cshtml
 layouts: layouts
 content: content
 template: tools/empty-template.html
-output: Output\
+output: ..\Output\
 deploy: ../jet-tech-blog/
 themes: themes
