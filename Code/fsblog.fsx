@@ -8,7 +8,7 @@ and tasks that operate with the static site generation.
 #I "packages/FAKE/tools/"
 #r "packages/FAKE/tools/FakeLib.dll"
 #r "packages/RazorEngine/lib/net40/RazorEngine.dll"
-#r "tools/FsBlogLib/obj/Debug/FsBlogLib.dll"
+#r "bin/FsBlogLib/FsBlogLib.dll"
 #r "packages/FSharp.Configuration/lib/net40/FSharp.Configuration.dll"
 
 open Fake

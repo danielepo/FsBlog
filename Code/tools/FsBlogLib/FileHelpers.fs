@@ -94,7 +94,6 @@ module FileHelpers =
   /// For files in the root, generate just /index.html (etc.)
   let TransformOutputFiles (output:string) (source:string) files = seq {
     for file, (target:string) in files ->
-      printfn "file: %s, output: %s, target: %s" file output target
       let relativeOut = target.Substring(source.Length)
       // If it is not index & it is not in the root directory, then make it a sub-dir
       if not (relativeOut.EndsWith("index")) && (relativeOut.Contains("\\") || relativeOut.Contains("/"))
