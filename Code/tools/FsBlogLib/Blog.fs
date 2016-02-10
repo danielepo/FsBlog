@@ -89,6 +89,7 @@ module Blog =
             Literate.ProcessMarkdown(fsx.FileName, template, html.FileName, ?prefix=prefix)
           let processed = File.ReadAllText(html.FileName)
           File.WriteAllText(html.FileName, header + processed)
+          printfn "directory name: %s" <| Path.GetDirectoryName(target)
           EnsureDirectory(Path.GetDirectoryName(target))
           razor.ProcessFile(html.FileName)
       | ".html" | ".cshtml" ->
