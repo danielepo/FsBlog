@@ -23,28 +23,28 @@ Microservices in Jet typically follow the pattern described below.
 2. A set of `output` that this microservice will generate. 
 
         type Output = 
-    	      | Update of Order
+            | Update of Order
 
 3. A `decode` phase that basically deserializes the incoming message on a pipe to an appropriate strongly typed input.
 
-	      let decode msg = 
-	           match msg.eventType with 
+        let decode msg = 
+             match msg.eventType with 
               | "Shipped" -> Input.Shipped(msg.payload |> toMerchantOrderShipped) 
               | "Cancelled" -> Input.Cancelled (msg.payload |> toMerchantOrderCancelled)
 
 4. A `handle` phase that takes an input, runs some business logic to calculate what side-effects should occur and generates the `Output` accordingly.
 
-      	let handle = function
-      	    | Shipped (mo) -> async {
-      	            //load the order
-      	            //update the order
-      	            return Output.Update(updatedOrder)
-      	        }
-      	    | Cancelled (mo) -> async {
-      	            //load the order
-      	            //update the order
-      	            return Output.Update(updatedOrder)
-      	        }
+        let handle = function
+            | Shipped (mo) -> async {
+                    //load the order
+                    //update the order
+                    return Output.Update(updatedOrder)
+                }
+            | Cancelled (mo) -> async {
+                    //load the order
+                    //update the order
+                    return Output.Update(updatedOrder)
+                }
 
 5. An `interpret` phase that takes an `Output` and executes the side-effects that the output usually represents.
 
@@ -149,7 +149,7 @@ The simplified model does bring in additional challenges around accurately commi
 
 So let us see what an F# function that handles the above model may look like:
 
-	runParallelOrBlock 
+  runParallelOrBlock 
             //specify the level of parallelism
             (parallelism:int)                 
             //can two inputs run simultaneously?
