@@ -95,7 +95,7 @@ Target "Generate" (fun _ ->
         let filesToProcess = 
             GetSourceFiles source output
             |> SkipExcludedFiles exclude
-            |> TransformOutputFiles output
+            |> TransformOutputFiles output source
             |> FilterChangedFiles dependencies special
     
         let razor = FsBlogLib.Razor(layouts, Model = model)
