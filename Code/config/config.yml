@@ -1,0 +1,20 @@
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
+
+url: http://tech.jet.com
+gitlocation: https://rachelatjet@jet-tech-blog.scm.azurewebsites.net:443/jet-tech-blog.git
+gitbranch: master
+title: Welcome to Jet Tech blog.
+description: This is the Jet Technology blog
+
+source: ..\BlogContent\
+blog: ..\BlogContent\blog/
+videos: ..\BlogContent\videos/
+blogIndex: ..\BlogContent\blog\index.cshtml
+layouts: layouts
+content: content
+template: tools/empty-template.html
+output: Output\
+deploy: ../jet-tech-blog/
+themes: themes
