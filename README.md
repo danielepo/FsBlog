@@ -22,20 +22,20 @@ To create a new blog post, run
 ```
 	fake new post="My markdown post"
 ```
-This generates a new markdown file in source/blog/current-year/. If your post contains images (it should!) create a new folder under content/images/ and place them in there. 
+This generates a new markdown file in BlogContent/blog/current-year/. If your post contains images (it should!) create a new folder under BlogContent/images/ and place them in there. Copying to Code/content/images is often needed as well.
 
 You may also want to write a code-heavy post. To do so, run
 ```
 	fake new fsx="My script post" 
 ```
-This will create a new blank .fsx file in source/blog/current-year/. To find out more about using .fsx files as the source of your posts, check out [F# Formatting: Literate programming](http://tpetricek.github.io/FSharp.Formatting/demo.html). 
+This will create a new blank .fsx file in BlogContent/blog/current-year/. To find out more about using .fsx files as the source of your posts, check out [F# Formatting: Literate programming](http://tpetricek.github.io/FSharp.Formatting/demo.html). 
 
 ## Adding a new video to the sidebar
 To add a Jet-recommended video to our list, run 
 ```
 	fake new video="video url" name="your name" tags="comma-delimited list of tags"
 ```
-This will automatically generate the title and description for youtube, vimeo, and infoQ videos (thanks Jim!), and then create an md file in source/videos/current-year/. **NB: For a youtube video, you must use the embed link! (otherwise we can't find the description.)**
+This will automatically generate the title and description for youtube, vimeo, and infoQ videos (thanks Jim!), and then create an md file in BlogContent/videos/current-year/. **NB: For a youtube video, you must use the embed link! (otherwise we can't find the description.)**
 
 ## Previewing your changes
 To double-check everything once you're done, run
