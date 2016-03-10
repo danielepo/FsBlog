@@ -16,5 +16,5 @@ layouts: layouts
 content: content
 template: tools/empty-template.html
 output: ..\Output\
-deploy: ../jet-tech-blog/
+deploy: ../../jet-tech-blog/
 themes: themes
