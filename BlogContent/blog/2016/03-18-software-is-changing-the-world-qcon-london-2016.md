@@ -1,4 +1,4 @@
-@{
+﻿@{
     Layout = "post";
     Title = "Software is Changing the World: Qcon London 2016";
     AddedDate = "2016-03-18T01:38:53";
@@ -15,7 +15,7 @@ Rachel gave a presentation about a project Ido Samuelson and I worked on involv
 
 ![RachelChaos](/images/RachelChaos.jpg)
 ![RachelNoraChaos](/images/RachelNoraChaos.jpg)
-
+<!--more--> 
 Side Note: the entire list of talks are on this  and if you're interested in watching any of them, please let either me or Rachel know and it can be coordinated with Lauren Havens.
 
 There were several amazing talks over the span of the 3-day conference, but there were a few standout ones that resonated with me and contained practices that would be useful here at Jet; I've provided recaps of below:
