@@ -11,7 +11,7 @@ FsBlog uses some of the following community projects:
 * [Bootstrap 3](http://getbootstrap.com/).
 
 ## Getting started
-Fork this repo! Then, from a command line, cd into the code directory and run 
+Clone this repo! Then, from a command line, cd into the ./code directory and run 
 ```
 build
 ```
@@ -42,5 +42,10 @@ To double-check everything once you're done, run
 ```
 	fake preview
 ```
+
+## Notes
+* "@" symbols must be escaped by using "@@"
+* Code blocks seem to work best by indenting the 4+ spaces on each line
+
 ## Final steps
 Once you're finished, send a PR. We'll merge and your post will be live.
