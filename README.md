@@ -11,7 +11,7 @@ FsBlog uses some of the following community projects:
 * [Bootstrap 3](http://getbootstrap.com/).
 
 ## Getting started
-Fork this repo! Then, from a command line, run 
+Fork this repo! Then, from a command line, cd into the code directory and run 
 ```
 build
 ```
