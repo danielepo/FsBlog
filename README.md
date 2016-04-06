@@ -11,7 +11,7 @@ FsBlog uses some of the following community projects:
 * [Bootstrap 3](http://getbootstrap.com/).
 
 ## Getting started
-Fork this repo! Then, from a command line, run 
+Clone this repo! Then, from a command line, cd into the ./code directory and run 
 ```
 build
 ```
@@ -22,7 +22,7 @@ To create a new blog post, run
 ```
 	fake new post="My markdown post"
 ```
-This generates a new markdown file in source/blog/current-year/. If your post contains images (it should!) create a new folder under content/images/ and place them in there. 
+This generates a new markdown file in BlogContent/blog/current-year/. If your post contains images (it should!) create a new folder under ./Code/content/images/ and place them in there as well as in ./BlogContent/images. 
 
 You may also want to write a code-heavy post. To do so, run
 ```
@@ -42,5 +42,10 @@ To double-check everything once you're done, run
 ```
 	fake preview
 ```
+
+## Notes
+* "@" symbols must be escaped by using "@@"
+* Code blocks seem to work best by indenting the 4+ spaces on each line
+
 ## Final steps
 Once you're finished, send a PR. We'll merge and your post will be live.
