@@ -11,7 +11,7 @@
 ### Jet’s Catalog Platform  
 
 The catalog platform at Jet consists of a constellation of (partially) reactive micro-services that communicate with one another using queues and message buses. Commands are consumed by various services from the queues and events are emitted onto the message buses. Other services subscribe to these message buses and react to events they receive in a concurrent manner. This concurrency occurs both within services which process multiple events in parallel and among different services that subscribe to the same topic. The upshot is that we are able to process 100’s of millions of events and commands a day. But consuming events in this manner creates the opportunity for contention and potential errors related to race conditions between processes or threads accessing the same data. In the catalog, this is an unacceptable outcome that we prevent. Below I go through an example of such a situation and one way that we ensure it doesn't happen. Obviously, this example is greatly simplified given that a product in the Jet catalog will potentially have 100’s of attributes and given that there are many catalog operations that act on these attributes. In practice we use higher-order functions, asynchronous computation expressions, generics, and many other goodies to handle the terabytes of data we aggregate into our catalog and promote best practices like code reuse, fault tolerance, scalability, etc. But here is a taste...  
-
+<!--more--> 
 ### An Example  
 
 Let's assume that somewhere in our catalog, a thread consuming Event A and a thread consuming Event B are both trying to update the title of Product ABC, stored in our Azure Sql database:  
